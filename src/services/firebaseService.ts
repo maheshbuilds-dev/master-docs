@@ -21,11 +21,16 @@ import {
   where,
   type Timestamp,
 } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
+import rawFirebaseConfig from '../../firebase-applet-config.json';
 import type { ContributorEntry } from '../types/document';
 
 export const OWNER_REVIEW_EMAIL = 'maheshm81622@gmail.com';
 const ADMIN_EMAILS = new Set(['maheshm81622@gmail.com', 'mahesh.2008here@gmail.com']);
+
+const firebaseConfig = {
+  ...rawFirebaseConfig,
+  apiKey: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FIREBASE_API_KEY) || rawFirebaseConfig.apiKey || '',
+};
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);

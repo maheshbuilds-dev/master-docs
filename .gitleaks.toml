@@ -2,16 +2,8 @@
 # https://github.com/gitleaks/gitleaks
 
 [allowlist]
-description = "Allowlist public Firebase Web Client configuration and build artifacts"
-regexes = [
-    ''''''
-]
-fingerprints = [
-    "302ee39bbca2745cb97978ae7f741c6b081c919f:firebase-applet-config.json:gcp-api-key:4",
-    "302ee39bbca2745cb97978ae7f741c6b081c919f:android/app/src/main/assets/public/assets/index-BKsvBn8s.js:gcp-api-key:474"
-]
+description = "Global allowlist for documentation and mock examples"
 paths = [
-    '''firebase-applet-config\.json''',
-    '''android/app/src/main/assets/public/.*''',
-    '''\.gitleaksignore'''
+    '''\.env\.example$''',
+    '''README\.md$'''
 ]
